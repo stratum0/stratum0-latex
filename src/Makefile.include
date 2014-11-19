@@ -1,0 +1,22 @@
+MKDIR = mkdir
+ECHO = @echo
+OTFTOTFM = otftotfm
+LATEX = latex
+PDFLATEX = pdflatex
+
+# color definitions
+NO_COLOR    = \x1b[0m
+OK_COLOR    = \x1b[32;01m
+WARN_COLOR  = \x1b[33;01m
+ERROR_COLOR = \x1b[31;01m
+
+# default strings
+OK_STRING=$(OK_COLOR)[OK]$(NO_COLOR)
+ERROR_STRING=$(ERROR_COLOR)[ERRORS]$(NO_COLOR)
+WARN_STRING=$(WARN_COLOR)[WARNINGS]$(NO_COLOR)
+DONE_STRING=$(OK_COLOR)[DONE]$(NO_COLOR)
+
+PDFLATEX_SILENT = $(PDFLATEX) -interaction=batchmode
+LATEX_SILENT = $(LATEX) -interaction=batchmode
+
+#SILENT=1>&1 > /dev/null

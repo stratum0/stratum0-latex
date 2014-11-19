@@ -1,0 +1,233 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2014 by comawill
+% -----------------------------------
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX
+% version 1999/12/01 or later.
+%
+% \fi
+%
+% \CheckSum{44}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \iffalse
+%
+%<*driver>
+\documentclass{scrdoc}
+\usepackage[ngerman]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{yanonekaffeesatzzerohack}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage{tabularx}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{yanonekaffeesatzzerohack.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+%
+% \changes{v0.1}{ 2014 / 06 / 11 }{%
+%   Initial version}
+%
+% \GetFileInfo{yanonekaffeesatzzerohack.sty}
+%
+% \DoNotIndex{ list of control sequences }
+%
+% \title{\textsf{yanonekaffeesatzzerohack} -- 
+%   CD-Font for \emph{stratum0latex}\thanks{This document
+%   corresponds to \textsf{yanonekaffeesatzzerohack}~\fileversion,
+%   dated \filedate.}}
+% \author{comawill}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   This file provides the font \emph{YanoneKaffeesatzZeroHack} from
+% \url{https://stratum0.org/wiki/Yanone_Kaffeesatz_ZeroHack}
+% \end{abstract}
+%
+% \StopEventually{\PrintIndex}
+%
+% \section{Font oveverview}
+%
+% \subsection{SansSerif}
+% 
+% {\sffamily
+% \paragraph{Normal}\hfill\\
+% {
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% \paragraph{Italic}\hfill\\
+% {\itshape
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% \paragraph{Slanted}\hfill\\
+% {\slshape
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% \paragraph{SmallCaps}\hfill\\
+% {\scshape
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% 
+% {\bfseries
+% \paragraph{Bold Normal}\hfill\\
+% {
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% \paragraph{Bold Italic}\hfill\\
+% {\itshape
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% \paragraph{Bold Slanted}\hfill\\
+% {\slshape
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% \paragraph{Bold SmallCaps}\hfill\\
+% {\scshape
+% Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor
+% incidunt ut labore et dolore magna aliqua.}
+% }
+% }
+% 
+%
+% \subsection{YanoneKaffeesatzZeroHack symbols {\normalsize\mdseries (in extracts)}}
+% {
+% \parindent0mm
+% 
+% 1, 2, 3, 4, 5, 6, 7, 8, 9, 0
+% 
+% a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
+% 
+% A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z
+% 
+% ä, ö, ü, ß, Ä, Ö, Ü
+% 
+% *, +, -, =, \textasciitilde, \textasciicircum, , !, ", §, \$, \%, \&,
+% /, (, ), =, ?, µ, @,\{, \}, [, ], €
+% }
+%
+%
+% \subsection{Typewriter- / Math-Font}
+% 
+% The Typewriter-Font is used from the \emph{TxFonts}-Package.
+%
+% As Math-Font the \emph{Pazo Math}-Familly is used.
+%
+%
+% \section{Implementation}
+%
+%
+%    \begin{macrocode}
+%<*package>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\ProvidesPackage{yanonekaffeesatzzerohack} [2014/06/11 v0.1 YanoneKaffeesatzZeroHack support for LaTeX]
+%    \end{macrocode}
+%
+% Handle Options
+%    \begin{macrocode}
+\ProcessOptions*\relax
+%    \end{macrocode}
+
+% Required packages
+%    \begin{macrocode}
+\RequirePackage{mathpazo}
+\PassOptionsToPackage{LY1}{fontenc}
+\RequirePackage{fontenc}
+%    \end{macrocode}
+%
+% 
+%    \begin{macro}{\glq}
+%    \begin{macro}{\grq}
+% Quotation mark German -- single
+%    \begin{macrocode}
+\ProvideTextCommand{\glq}{LY1}{\symbol{0130}}
+\ProvideTextCommand{\grq}{LY1}{\symbol{0096}}
+%    \end{macrocode}
+%    \end{macro}\end{macro}
+%
+%    \begin{macro}{\glqq}
+%    \begin{macro}{\grqq}
+% Quotation mark German -- double
+%    \begin{macrocode}
+\ProvideTextCommand{\glqq}{LY1}{\symbol{0132}}
+\ProvideTextCommand{\grqq}{LY1}{\symbol{0147}}
+%    \end{macrocode}
+%    \end{macro}\end{macro}
+%
+%    \begin{macro}{\flq}
+%    \begin{macro}{\flq}
+% Quotation mark French -- single
+%    \begin{macrocode}
+\ProvideTextCommand{\flq}{LY1}{\symbol{0139}}
+\ProvideTextCommand{\frq}{LY1}{\symbol{0155}}
+%    \end{macrocode}
+%    \end{macro}\end{macro}
+%
+%    \begin{macro}{\flqq}
+%    \begin{macro}{\frqq}
+% Quotation mark French -- double
+%    \begin{macrocode}
+\ProvideTextCommand{\flqq}{LY1}{\symbol{0171}}
+\ProvideTextCommand{\frqq}{LY1}{\symbol{0187}}
+%    \end{macrocode}
+%    \end{macro}\end{macro}
+%
+%    \begin{macro}{\textasteriskcentered}
+%    \begin{macrocode}
+\DeclareTextCommand{\textasteriskcentered}{LY1}{$*$}
+%    \end{macrocode}
+%    \end{macro}
+
+
+% Use YanoneKaffeesatzZeroHack.
+%    \begin{macrocode}
+\renewcommand*{\encodingdefault}{LY1}
+\renewcommand*{\rmdefault}{YanoneKaffeesatzZeroHack}
+\renewcommand*{\sfdefault}{YanoneKaffeesatzZeroHack}
+\renewcommand*{\ttdefault}{txtt} % with bold series!
+%    \end{macrocode}
+
+
+% define mathsf and mathtt
+%    \begin{macrocode}
+\SetMathAlphabet{\mathsf}{normal}{LY1}{YanoneKaffeesatzZeroHack}{m}{n}
+\SetMathAlphabet{\mathtt}{normal}{LY1}{txtt}{m}{n}
+%    \end{macrocode}
+
+%
+%    \begin{macrocode}
+%</package>
+%    \end{macrocode}
+%
+% \Finale
+\endinput
+%
