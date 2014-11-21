@@ -1,0 +1,181 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2014 by comawill
+% -----------------------------------
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX
+% version 1999/12/01 or later.
+%
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \iffalse
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{yanonekaffeesatz}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage{tabularx}
+\usepackage{environ}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{beamerthemestratum0.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+%\newenvironment{Options}%
+% {\begin{list}{}{%
+%  \renewcommand{\makelabel}[1]{\texttt{##1}\hfil}%
+%  \setlength{\itemsep}{-.5\parsep}
+%  \settowidth{\labelwidth}{\texttt{xxxxxxxxxxx\space}}%
+%  \setlength{\leftmargin}{\labelwidth}%
+%  \addtolength{\leftmargin}{\labelsep}}%
+%  \raggedright}
+% {\end{list}}
+%
+%\parindent0mm
+%\parskip\medskipamount
+%
+% \changes{v1.0}{ 2014 / 11 / 19 }{Initial version}
+%
+% \GetFileInfo{beamerthemestratum0.sty}
+%
+% \DoNotIndex{ list of control sequences }
+%
+% \title{\textsf{beamerthemestratum0} -- 
+%   beamer theme for \emph{stratum0}\thanks{This document
+%   corresponds to \textsf{beamerthemestratum0}~\fileversion,
+%   dated \filedate.}}
+% \author{comawill}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   This file provides the main theme of Stratum 0 latex beamer template
+% \end{abstract}
+%
+% \StopEventually{\PrintIndex}
+%
+% \section{Implementierung}
+%
+%
+%    \begin{macrocode}
+%<*beamertheme>
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\ProvidesPackage{beamerthemestratum0}[2014/11/19 v1.0 beamer theme Stratum 0]
+\typeout{^^JBeamer theme 'stratum0'^^J}
+%    \end{macrocode}
+%
+% \begin{macrocode}
+\RequirePackage{environ}
+\RequirePackage{textpos}
+% \end{macrocode}
+% 
+% \subsection{Options}
+%
+%
+% \subsubsection{Layout options}
+%
+%    \begin{macrocode}
+% \DeclareOptionBeamer*{%
+%   \PassOptionsToPackage{\CurrentOption}{beamerthemestratum0}%
+% }
+%\ExecuteOptionsBeamer{rgb}
+\ProcessOptionsBeamer\relax
+%
+\DeclareOption*{%
+  \let\@classoptionslist\CurrentOption
+  \PassOptionsToClass{\CurrentOption}{beamer}%
+}
+\ProcessOptions\relax
+%    \end{macrocode}
+%
+% Hack: If available use short title for pdftitle
+%    \begin{macrocode}
+\g@addto@macro\beamer@firstminutepatches{%
+  \hypersetup{%
+    pdftitle={\beamer@shorttitle\ifx\insertsubtitle\@empty\else\ - \insertsubtitle\fi}}
+}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\mode<presentation>
+%    \end{macrocode}
+%
+% include stratum0 theme files
+%    \begin{macrocode}
+\usecolortheme{stratum0}
+\usefonttheme{stratum0}
+\useoutertheme{stratum0}
+\useinnertheme{stratum0}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\mode<all>
+%\begin{macrocode}
+\NewEnviron{logoframe}[1]{
+  \begin{frame}[plain]{}%
+    \logopage{#1}{\BODY}%
+  \end{frame}%
+}
+\NewEnviron{finalframe}[1]{
+  \begin{frame}[plain]{}%
+    \logopage{#1}{%
+    \BODY\par%
+    \vspace{2em}%
+    \textbf{Stratum\,0 e.\,V.} Braunschweig\\%
+    \url{https://stratum0.org/}%
+    }%
+  \end{frame}%
+}
+%
+\newcommand{\logopage}[2]{\begin{textblock*}{\paperwidth}(-2.58em,-9.95em)
+\begin{tikzpicture}
+ \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
+  \draw[thick] (.07\paperwidth,.5\paperheight) -- (.66\paperwidth,.5\paperheight);%
+  \node at (.08\paperwidth,.5\paperheight) [above right, text width=.6\paperwidth]{\usebeamerfont{title}#1};%
+  \node at (.68\paperwidth,.5\paperheight)[right] {\includegraphics[width=.25\paperwidth]{img/stratum0_logo}};
+  \node at (.09\paperwidth,.5\paperheight) [below right, text width=.6\paperwidth]{\usebeamerfont{subtitle}#2};
+\end{tikzpicture}
+\end{textblock*}
+}
+\setbeamertemplate{items}[circle]
+%
+% \emd{macrocode}
+%</beamertheme>
+%    \end{macrocode}
+%
+% \Finale
+\endinput
+%

@@ -1,0 +1,156 @@
+% \iffalse meta-comment
+%
+%
+% Copyright (C) 2014 by comawill
+% -----------------------------------
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX
+% version 1999/12/01 or later.
+%
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \iffalse
+%
+%<*driver>
+\documentclass{scrdoc}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{nexus}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage{tabularx}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{beamerouterthemestratum0.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \changes{v1.0}{ 2014 / 11 / 19 }{Initial version}
+%
+% \GetFileInfo{beamerouterthemestratum0.sty}
+%
+% \DoNotIndex{ list of control sequences }
+%
+% \title{\textsf{beamerouterthemestratum0} -- 
+%   beamer outer theme of \emph{stratum0}\thanks{This document
+%   corresponds to \textsf{beamerouterthemestratum0}~\fileversion,
+%   dated \filedate.}}
+% \author{comawill}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   This file provides the outer theme of Stratum 0 latex beamer template
+% \end{abstract}
+%
+% \StopEventually{\PrintIndex}
+%
+% \section{Implementation}
+%
+%
+%    \begin{macrocode}
+%<*outertheme>
+\ProvidesPackage{beamerouterthemestratum0}[2014/11/19, v1.0 beamer outer theme Stratum 0]
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\RequirePackage{ifthen}
+\RequirePackage{calc}
+\PassOptionsToPackage{ngerman}{babel}
+\RequirePackage{babel}
+\RequirePackage{stratum0beamersizes}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\newdimen\beamer@tochorizontalspace
+\beamer@tochorizontalspace=0.15em
+%    \end{macrocode}
+%
+%  \begin{macrocode}
+%  \end{macrocode}
+% Only sections and subsections in toc
+%    \begin{macrocode}
+\setcounter{tocdepth}{2}
+%    \end{macrocode}
+%
+%
+%
+%    \begin{macrocode}
+\mode
+<all>
+%    \end{macrocode}
+%% presentation-mode
+%    \begin{macrocode}
+\mode<presentation>
+%    \end{macrocode}
+% \begin{macrocode}
+\setbeamertemplate{navigation symbols}{}%
+\setbeamertemplate{headline}{%
+\begin{tikzpicture}%
+ \useasboundingbox (0,0) rectangle (\paperwidth,.14\paperwidth);
+ %\draw[red] (0,0) rectangle (\paperwidth,.14\paperwidth);
+ \node at (\paperwidth,.14\paperwidth)[below left,inner sep=.02\paperwidth] {\includegraphics[height=.1\paperwidth]{img/stratum0_plain_logo.pdf}};
+ \draw[thick] (.02\paperwidth,.03\paperwidth) -- (.835 \paperwidth,.03\paperwidth);
+\end{tikzpicture}
+}%
+\setbeamertemplate{footline}{%
+\begin{tikzpicture}%
+ \useasboundingbox (0,0) rectangle (\paperwidth,.07\paperheight);
+ \draw[thick] (.02\paperwidth,.07\paperheight) -- (.98\paperwidth,.07\paperheight);
+ \node[below right, text width=.93\paperwidth] at (.03\paperwidth,.065\paperheight) {\insertshortdate};
+ \node[below right, text width=.93\paperwidth,align=center] at (.03\paperwidth,.065\paperheight) {\insertshortauthor{ -- }\insertshorttitle};
+ \node[below right, text width=.93\paperwidth] at (.03\paperwidth,.065\paperheight) {\hfill\insertframenumber};
+\end{tikzpicture}
+}%
+\setbeamertemplate{frametitle}
+{%
+\begin{textblock*}{\paperwidth}(0pt,-0.14\paperwidth)
+\begin{tikzpicture}
+ \useasboundingbox (0,0) rectangle (\paperwidth,.14\paperwidth);
+ \node[above right, text width=.91\paperwidth] at (-0.01\paperwidth,.028\paperwidth) {\usebeamerfont{frametitle}\insertframetitle};
+\end{tikzpicture}
+\end{textblock*}
+}%
+\setbeamertemplate{title page}{%
+ \logopage{\inserttitle}{%
+ \insertsubtitle\\%
+ \vspace{3em}%
+ \insertauthor\\%
+ \insertdate}%
+}
+\setbeamersize{text margin left=.04\paperwidth,text margin right=.04\paperwidth,mini frame offset=-1cm}
+% \end{macrocode}
+%    \begin{macrocode}
+%</outertheme>
+%    \end{macrocode}
+%
+% \Finale
+\endinput
+%

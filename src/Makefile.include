@@ -3,6 +3,7 @@ ECHO = @echo
 OTFTOTFM = otftotfm
 LATEX = latex
 PDFLATEX = pdflatex
+MAKEINDEX = makeindex
 
 # color definitions
 NO_COLOR    = \x1b[0m
@@ -19,4 +20,4 @@ DONE_STRING=$(OK_COLOR)[DONE]$(NO_COLOR)
 PDFLATEX_SILENT = $(PDFLATEX) -interaction=batchmode
 LATEX_SILENT = $(LATEX) -interaction=batchmode
 
-#SILENT=1>&1 > /dev/null
+SILENT=1>&1 > /dev/null

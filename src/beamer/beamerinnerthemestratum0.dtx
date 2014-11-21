@@ -1,0 +1,118 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2014 by comawill
+% -----------------------------------
+%
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.2
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%   http://www.latex-project.org/lppl.txt
+%
+% and version 1.2 or later is part of all distributions of LaTeX
+% version 1999/12/01 or later.
+%
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+% \iffalse
+%
+%<*driver>
+\documentclass{scrdoc}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{nexus}
+\usepackage[colorlinks, linkcolor=blue]{hyperref}
+\usepackage{tabularx}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{beamerinnerthemestratum0.dtx}
+\end{document}
+%</driver>
+% \fi
+%\newenvironment{key}[2]{\expandafter\macro\expandafter{`#2'}}{\endmacro}
+% \changes{v1.0}{ 2014 / 11 / 19 }{Initial version}
+%
+% \GetFileInfo{beamerinnerthemestratum0.sty}
+%
+% \DoNotIndex{ list of control sequences }
+%
+% \title{\textsf{beamerinnerthemestratum0} -- 
+%   beamer inner theme for \emph{stratum0latex}\thanks{This document
+%   corresponds to \textsf{beamerinnerthemestratum0}~\fileversion,
+%   dated \filedate.}}
+% \author{comawill}
+%
+% \maketitle
+%
+% \begin{abstract}
+%   This file provides the inner theme of Stratum 0 latex beamer template
+% \end{abstract}
+%
+% \StopEventually{\PrintIndex}
+%
+% \section{Implementierung}
+%
+%
+%    \begin{macrocode}
+%<*innertheme>
+\ProvidesPackage{beamerinnerthemestratum0}[2014/11/19 v1.0 beamer inner template Stratum 0]
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\RequirePackage{ifthen}
+\RequirePackage{relsize}[1999/11/01]
+\RequirePackage{printlen}
+\RequirePackage{stratum0beamersizes}
+%    \end{macrocode}
+%
+%
+% \subsection{Options}
+%
+%
+%    \begin{key}{}{shadow}
+%    \begin{macrocode}
+%\DeclareOptionBeamer{shadow}[true]{\def\beamer@themerounded@shadow{#1}}
+%    \end{macrocode}
+%    \end{key}
+%
+%    \begin{macrocode}
+%\ExecuteOptionsBeamer{shadow=false}
+%\ProcessOptionsBeamer\relax
+%    \end{macrocode}
+%
+%
+% enumerate figures by default
+%    \begin{macrocode}
+%\setbeamertemplate{caption}[numbered]
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\mode<all>
+%</innertheme>
+%    \end{macrocode}
+%
+% \Finale
+\endinput
+%
+
