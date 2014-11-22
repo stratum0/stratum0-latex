@@ -115,3 +115,4 @@ sympy-plots-for-*.tex/
 *.pfb
 *.map
 *.enc
+/dist
