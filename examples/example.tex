@@ -1,0 +1,52 @@
+\usepackage[utf8x]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{etex}
+\usetheme{stratum0}
+
+\title[kurzer Titel]{Hier steht der Titel dieser Präsentation (max 2 Zeilen)}
+\subtitle{Beschreibender Untertitel, falls gewünscht (1 Zeile)}
+\author[Kurzname]{$<$Name$>$}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+\section{Einleitung}
+
+\begin{frame}{Titel}
+  \begin{block}{Block}
+    \begin{itemize}
+      \item mit
+      \item etwas
+      \item inhalt
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+
+\section{Ende}
+
+\begin{frame}{title}
+  \begin{tikzpicture}%
+    \draw[ultra thin,red] (0,0) rectangle (\textwidth,\textheight);
+    \node[below right] at (1em,\textheight-1em) {content area};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{logoframe}{Ein Titel}
+Und Text
+\end{logoframe}
+
+
+\begin{finalframe}{$<$Grußformel, 1 Zeile$>$}
+$<$Name$>$\\
+$<$Kontaktdaten$>$
+\end{finalframe}
+
+\end{document}
