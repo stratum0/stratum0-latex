@@ -104,6 +104,19 @@
 % 
 % \subsection{Options}
 %
+% \subsubsection{Design options}
+%    \begin{key}{}{stratum0}
+%    \begin{macrocode}
+\DeclareOptionBeamer{stratum0}{%
+  \def\stratumThemeLogo{img/stratum0_logo}%
+  \def\stratumThemePlainLogo{img/stratum0_plain_logo}%
+  \def\stratumThemeFinalText{%
+    \textbf{Stratum\,0 e.\,V.} Braunschweig\\%
+    \url{https://stratum0.org/}%
+}%
+  }%
+%    \end{macrocode}
+%    \end{key}
 %
 % \subsubsection{Layout options}
 %
@@ -111,7 +124,7 @@
 % \DeclareOptionBeamer*{%
 %   \PassOptionsToPackage{\CurrentOption}{beamerthemestratum0}%
 % }
-%\ExecuteOptionsBeamer{rgb}
+\ExecuteOptionsBeamer{stratum0}
 \ProcessOptionsBeamer\relax
 %
 \DeclareOption*{%
@@ -154,8 +167,7 @@
     \logopage{#1}{%
     \BODY\par%
     \vspace{2em}%
-    \textbf{Stratum\,0 e.\,V.} Braunschweig\\%
-    \url{https://stratum0.org/}%
+    \stratumThemeFinalText%
     }%
   \end{frame}%
 }
@@ -165,7 +177,7 @@
  \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
   \draw[thick] (.07\paperwidth,.5\paperheight) -- (.66\paperwidth,.5\paperheight);%
   \node at (.08\paperwidth,.5\paperheight) [above right, text width=.6\paperwidth]{\usebeamerfont{title}#1};%
-  \node at (.68\paperwidth,.5\paperheight)[right] {\includegraphics[width=.25\paperwidth]{img/stratum0_logo}};
+  \node at (.68\paperwidth,.5\paperheight)[right] {\includegraphics[width=.25\paperwidth]{\stratumThemeLogo}};
   \node at (.09\paperwidth,.5\paperheight) [below right, text width=.6\paperwidth]{\usebeamerfont{subtitle}#2};
 \end{tikzpicture}
 \end{textblock*}
