@@ -47,8 +47,8 @@ $(STYLIST): $(DTXLIST)
 
 %.pdf: %.dtx
 	$(ECHO) -n 'Compiling doc for $<'...
-	$(PDFLATEX) $< $(SILENT)
-	$(PDFLATEX) $< $(SILENT)
+	$(PDFLATEX_SILENT) $< $(SILENT)
+	$(PDFLATEX_SILENT) $< $(SILENT)
 	$(ECHO) -e '$(DONE_STRING)'
 
 fonts:
