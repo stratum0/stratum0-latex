@@ -1,15 +1,15 @@
-\ProvidesFile{ly1YanoneKaffeesatzZeroHack.fd}
+\ProvidesFile{LY1YanoneKaffeesatzZeroHack.fd}
+
 \DeclareFontFamily{LY1}{YanoneKaffeesatzZeroHack}{}
-\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{n}{ <-> YanoneKaffeesatzZeroHack-Regular}{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{n}{ <-> YanoneKaffeesatzZeroHack-Regular }{}
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{sc}{ <-> YanoneKaffeesatzZeroHack-SmallCaps }{}
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{sl}{ <-> YanoneKaffeesatzZeroHack-Slanted }{}
-\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{it}{ <-> YanoneKaffeesatzZeroHack-Italic}{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{it}{ <-> YanoneKaffeesatzZeroHack-Italic }{}
 
-\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{b}{n}{ <-> YanoneKaffeesatzZeroHack-Bold}{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{b}{n}{ <-> YanoneKaffeesatzZeroHack-Bold }{}
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{b}{sc}{ <-> YanoneKaffeesatzZeroHack-Bold-SmallCaps }{}
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{b}{sl}{ <-> YanoneKaffeesatzZeroHack-Bold-Slanted }{}
-\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{b}{it}{ <-> YanoneKaffeesatzZeroHack-Bold-Italic}{}
-
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{b}{it}{ <-> YanoneKaffeesatzZeroHack-Bold-Italic }{}
 
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{bx}{n}{ <-> ssub * YanoneKaffeesatzZeroHack/b/n }{}
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{bx}{sc}{ <-> ssub * YanoneKaffeesatzZeroHack/b/sc }{}
