@@ -221,7 +221,15 @@
 \SetMathAlphabet{\mathsf}{normal}{LY1}{YanoneKaffeesatzZeroHack}{m}{n}
 \SetMathAlphabet{\mathtt}{normal}{LY1}{txtt}{m}{n}
 %    \end{macrocode}
-
+%
+% Provide beamer specific font-variant
+%    \begin{macrocode}
+\newcommand{\YanoneKaffeesatzZeroHackBeamer}{%
+\renewcommand*{\rmdefault}{YanoneKaffeesatzZeroHackBeamer}%
+\renewcommand*{\sfdefault}{YanoneKaffeesatzZeroHackBeamer}%
+\SetMathAlphabet{\mathsf}{normal}{LY1}{YanoneKaffeesatzZeroHackBeamer}{m}{n}%
+}
+%    \end{macrocode}
 %
 %    \begin{macrocode}
 %</package>

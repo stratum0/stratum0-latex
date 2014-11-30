@@ -1,0 +1,24 @@
+\ProvidesFile{LY1YanoneKaffeesatzZeroHackBeamer.fd}
+
+\DeclareFontFamily{LY1}{YanoneKaffeesatzZeroHackBeamer}{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{m}{n}{ <-> YanoneKaffeesatzZeroHack-Light }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{m}{sc}{ <-> YanoneKaffeesatzZeroHack-Light-SmallCaps }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{m}{sl}{ <-> YanoneKaffeesatzZeroHack-Light-Slanted }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{m}{it}{ <-> YanoneKaffeesatzZeroHack-Light-Italic }{}
+
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{b}{n}{ <-> YanoneKaffeesatzZeroHack-Regular }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{b}{sc}{ <-> YanoneKaffeesatzZeroHack-SmallCaps }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{b}{sl}{ <-> YanoneKaffeesatzZeroHack-Slanted }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{b}{it}{ <-> YanoneKaffeesatzZeroHack-Italic }{}
+
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{bx}{n}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/n }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{bx}{sc}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/sc }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{bx}{sl}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/sl }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{bx}{it}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/it }{}
+
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{sb}{n}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/n }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{sb}{sc}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/sc }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{sb}{sl}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/sl }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHackBeamer}{sb}{it}{ <-> ssub * YanoneKaffeesatzZeroHackBeamer/b/it }{}
+
+\endinput

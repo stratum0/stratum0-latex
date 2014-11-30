@@ -25,7 +25,6 @@ OTFDEFAULT += --encoding-directory=fonts/enc/dvips/Fontshop/
 SANS_OPTS = --map-file=fonts/map/dvips/$(FONTBASE).map
 
 
-
 # For (not-hanging) lined figures
 LNUMFEATURE = --feature=lnum
 # For small caps
@@ -62,12 +61,17 @@ fonts:
 	# Serif
 	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Regular $(OTFDEFAULT) $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Regular.otf $(SILENT)
 	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-SmallCaps $(OTFDEFAULT) --feature=smcp $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Regular.otf $(SILENT)
-	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Slanted --slant=.167  $(OTFDEFAULT) $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Regular.otf $(SILENT)
-	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Italic --slant=.167  $(OTFDEFAULT) $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Light.otf $(SILENT)
+	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Slanted $(OTFDEFAULT) --slant=.167 $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Regular.otf $(SILENT)
+	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Italic $(OTFDEFAULT) --slant=.167 $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Regular.otf $(SILENT)
+	
+	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Light $(OTFDEFAULT) $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Light.otf $(SILENT)
+	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Light-SmallCaps $(OTFDEFAULT) --feature=smcp $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Light.otf $(SILENT)
+	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Light-Slanted $(OTFDEFAULT) --slant=.167 $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Light.otf $(SILENT)
+	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Light-Italic $(OTFDEFAULT) --slant=.167 $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Light.otf $(SILENT)
 
 	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Bold $(OTFDEFAULT) $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Bold.otf $(SILENT)
 	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Bold-SmallCaps $(OTFDEFAULT) --feature=smcp $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Bold.otf $(SILENT)
-	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Bold-Slanted --slant=.167  $(OTFDEFAULT) $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Bold.otf $(SILENT)	
+	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Bold-Slanted $(OTFDEFAULT) --slant=.167 $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Bold.otf $(SILENT)
 	$(OTFTOTFM) --no-updmap --vendor=Fontshop --name=$(FONTBASE)-Bold-Italic $(OTFDEFAULT) --slant=.167 $(SANS_OPTS) $(OTFSRCDIR)/$(FONTBASE)-Bold.otf
 	
 	$(ECHO) -e '$(OK_STRING)'
