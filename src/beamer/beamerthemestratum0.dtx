@@ -191,10 +191,10 @@
 \begin{textblock*}{\paperwidth}(-.045\paperwidth,-.4\paperheight)%
 \begin{tikzpicture}%
  \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
-  \node at (.08\paperwidth,.5\paperheight) [above right, text width=.6\paperwidth]{\usebeamerfont{title}#1};%
   \node (biglogo) at (.96\paperwidth,.5\paperheight)[left,inner sep=.04\paperwidth] {\includegraphics[width=.25\paperwidth]{\stratumThemeLogo}};%
-  \node at (.09\paperwidth,.5\paperheight) [below right, text width=.6\paperwidth]{\usebeamerfont{subtitle}#2};%
   \gettikzxy{(biglogo.west)}{\logox}{\logoy}
+  \node at (.08\paperwidth,.5\paperheight) [above right, text width=\logox-.09\paperwidth]{\usebeamerfont{title}#1};%
+  \node at (.09\paperwidth,.5\paperheight) [below right, text width=\logox-.09\paperwidth]{\usebeamerfont{subtitle}#2};%
   \draw[thick] (.07\paperwidth,.5\paperheight) -- (\logox,.5\paperheight);%
 \end{tikzpicture}
 \end{textblock*}
