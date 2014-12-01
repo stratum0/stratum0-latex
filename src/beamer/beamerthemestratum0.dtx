@@ -110,6 +110,7 @@
 %    \begin{key}{}{stratum0}
 %    \begin{macrocode}
 \DeclareOptionBeamer{stratum0}{%
+  \def\logopage{\smalllogopage}
   \def\stratumThemeLogo{img/stratum0_logo}%
   \def\stratumThemePlainLogo{img/stratum0_plain_logo}%
   \def\stratumThemeFinalText{%
@@ -123,6 +124,7 @@
 %    \begin{key}{}{stratumauhuur}
 %    \begin{macrocode}
 \DeclareOptionBeamer{stratumauhuur}{%
+  \def\logopage{\smalllogopage}
   \def\stratumThemeLogo{img/stratumauhuur_logo}%
   \def\stratumThemePlainLogo{img/stratumauhuur_plain_logo}%
   \def\stratumThemeFinalText{%
@@ -136,11 +138,26 @@
 %    \begin{key}{}{coderdojo}
 %    \begin{macrocode}
 \DeclareOptionBeamer{coderdojo}{%
+  \def\logopage{\smalllogopage}
   \def\stratumThemeLogo{img/coderdojobs_logo}%
   \def\stratumThemePlainLogo{img/coderdojobs_logo}%
   \def\stratumThemeFinalText{%
     \textbf{CoderDojo Braunschweig}\\%
     \href{https://twitter.com/coderdojobs}{@CoderDojoBS}%
+}%
+  }%
+%    \end{macrocode}
+%    \end{key}
+%
+%    \begin{key}{}{freifunk}
+%    \begin{macrocode}
+\DeclareOptionBeamer{freifunk}{%
+  \def\logopage{\biglogopage}
+  \def\stratumThemeLogo{img/freifunkbs_logo}%
+  \def\stratumThemePlainLogo{img/freifunkbs_small_logo}%
+  \def\stratumThemeFinalText{%
+    \textbf{Freifunk Braunschweig}\\%
+    \href{https://freifunk-bs.de}{freifunk-bs.de}%
 }%
   }%
 %    \end{macrocode}
@@ -200,7 +217,7 @@
   \end{frame}%
 }
 %
-\newcommand{\logopage}[2]{%
+\newcommand{\smalllogopage}[2]{%
 \begin{textblock*}{\paperwidth}(-.045\paperwidth,-.4\paperheight)%
 \begin{tikzpicture}%
  \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
@@ -209,6 +226,50 @@
   \node at (.08\paperwidth,.5\paperheight) [above right, text width=\logox-.09\paperwidth]{\usebeamerfont{title}#1};%
   \node at (.09\paperwidth,.5\paperheight) [below right, text width=\logox-.09\paperwidth]{\usebeamerfont{subtitle}#2};%
   \draw[thick] (.07\paperwidth,.5\paperheight) -- (\logox,.5\paperheight);%
+\end{tikzpicture}
+\end{textblock*}
+}
+%
+\newdimen\stratum@img@x%
+\newdimen\stratum@img@y%
+\newdimen\stratum@cmp@img%
+\newdimen\stratum@cmp@want%
+%
+\newcount\stratum@ratio@tmp
+%
+\newcount\stratum@ratio@img
+\newcount\stratum@ratio@want
+\newcommand{\includeimagemaxdim}[3]{%
+\settowidth\stratum@img@x{\includegraphics[width=100cm]{#1}}
+\settoheight\stratum@img@y{\includegraphics[width=1cm]{#1}}
+\stratum@ratio@img=\stratum@img@x
+\stratum@ratio@tmp=\stratum@img@y
+\divide\stratum@ratio@img by \stratum@ratio@tmp
+\stratum@cmp@img=\stratum@ratio@img pt
+%
+\setlength\stratum@img@x{#2}
+\setlength\stratum@img@y{#3}
+\setlength\stratum@img@y{.01\stratum@img@y}
+\stratum@ratio@want=\stratum@img@x
+\stratum@ratio@tmp=\stratum@img@y
+\divide\stratum@ratio@want by \stratum@ratio@tmp
+\stratum@cmp@want=\stratum@ratio@want pt
+\ifdim \stratum@cmp@img < \stratum@cmp@want
+% limit height
+\includegraphics[height=#3]{#1}
+\else
+% limt width
+\includegraphics[width=#2]{#1}
+\fi
+}
+%
+\newcommand{\biglogopage}[2]{%
+\begin{textblock*}{\paperwidth}(-.045\paperwidth,-.4\paperheight)%
+\begin{tikzpicture}%
+ \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
+  \node at (.5\paperwidth,.52\paperheight)[above,inner sep=0] {\includeimagemaxdim{\stratumThemeLogo}{.86\paperwidth}{.4\paperheight}};%
+  \node (title) at (.5\paperwidth,.5\paperheight) [below,align=center,text width=.8\paperwidth]{\usebeamerfont{title}#1};%
+  \node[below of=title,below,align=center,node distance=1.8em, text width=.8\paperwidth]{\usebeamerfont{subtitle}#2};%
 \end{tikzpicture}
 \end{textblock*}
 }
