@@ -112,29 +112,34 @@
 %    \end{macrocode}
 % \begin{macrocode}
 \setbeamertemplate{navigation symbols}{}%
+\newcommand{\gettikzxy}[3]{%
+  \tikz@scan@one@point\pgfutil@firstofone#1\relax
+  \edef#2{\the\pgf@x}%
+  \edef#3{\the\pgf@y}%
+}
 \setbeamertemplate{headline}{%
 \begin{tikzpicture}%
- \useasboundingbox (0,0) rectangle (\paperwidth,.14\paperwidth);
- %\draw[red] (0,0) rectangle (\paperwidth,.14\paperwidth);
- \node at (\paperwidth,.14\paperwidth)[below left,inner sep=.02\paperwidth] {\includegraphics[height=.1\paperwidth]{\stratumThemePlainLogo}};
- \draw[thick] (.02\paperwidth,.03\paperwidth) -- (.835 \paperwidth,.03\paperwidth);
+ \useasboundingbox (0,0) rectangle (\paperwidth,.11\paperwidth);
+ \node (logo) at (\paperwidth,-0.03\paperwidth)[above left,inner sep=.02\paperwidth] {\includegraphics[height=.1\paperwidth]{\stratumThemePlainLogo}};
+ \gettikzxy{(logo.west)}{\logox}{\logoy}
+ \draw[thick] (.02\paperwidth,.0\paperwidth) -- (\logox,.0\paperwidth);
 \end{tikzpicture}
 }%
 \setbeamertemplate{footline}{%
 \begin{tikzpicture}%
- \useasboundingbox (0,0) rectangle (\paperwidth,.07\paperheight);
+ \useasboundingbox (0,0) rectangle (\paperwidth,.08\paperheight);
  \draw[thick] (.02\paperwidth,.07\paperheight) -- (.98\paperwidth,.07\paperheight);
  \node[below right, text width=.93\paperwidth] at (.03\paperwidth,.065\paperheight) {\insertshortdate};
- \node[below right, text width=.93\paperwidth,align=center] at (.03\paperwidth,.065\paperheight) {\insertshortauthor{ -- }\insertshorttitle};
+ \node[below right, text width=.93\paperwidth,align=center] at (.03\paperwidth,.065\paperheight) {\insertshortauthor{ --- }\insertshorttitle};
  \node[below right, text width=.93\paperwidth] at (.03\paperwidth,.065\paperheight) {\hfill\insertframenumber};
 \end{tikzpicture}
 }%
 \setbeamertemplate{frametitle}
 {%
-\begin{textblock*}{\paperwidth}(0pt,-0.14\paperwidth)
+\begin{textblock*}{\paperwidth}(0pt,-0.11\paperwidth)
 \begin{tikzpicture}
- \useasboundingbox (0,0) rectangle (\paperwidth,.14\paperwidth);
- \node[above right, text width=.91\paperwidth] at (-0.01\paperwidth,.028\paperwidth) {\usebeamerfont{frametitle}\insertframetitle};
+ \useasboundingbox (0,0) rectangle (\paperwidth,.11\paperwidth);
+ \node[above right, text width=.91\paperwidth] at (-0.01\paperwidth,-.002\paperwidth) {\usebeamerfont{frametitle}\insertframetitle};
 \end{tikzpicture}
 \end{textblock*}
 }%
@@ -145,7 +150,7 @@
  \insertauthor\\%
  \insertdate}%
 }
-\setbeamersize{text margin left=.04\paperwidth,text margin right=.04\paperwidth,mini frame offset=-1cm}
+\setbeamersize{text margin left=.045\paperwidth,text margin right=.045\paperwidth,mini frame offset=0cm}
 % \end{macrocode}
 %    \begin{macrocode}
 %</outertheme>
