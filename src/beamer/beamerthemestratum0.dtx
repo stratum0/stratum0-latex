@@ -235,38 +235,71 @@
 \newdimen\stratum@cmp@img%
 \newdimen\stratum@cmp@want%
 %
-\newcount\stratum@ratio@tmp
+\newcount\stratum@ratio@tmp%
 %
-\newcount\stratum@ratio@img
-\newcount\stratum@ratio@want
+\newcount\stratum@ratio@img%
+\newcount\stratum@ratio@want%
+\newcommand{\stratum@calc@cmp}[3]{%
+\settowidth\stratum@img@x{\includegraphics[width=100cm]{#1}}%
+\settoheight\stratum@img@y{\includegraphics[width=1cm]{#1}}%
+\stratum@ratio@img=\stratum@img@x%
+\stratum@ratio@tmp=\stratum@img@y%
+\divide\stratum@ratio@img by \stratum@ratio@tmp%
+\stratum@cmp@img=\stratum@ratio@img pt%
+%
+\setlength\stratum@img@x{#2}%
+\setlength\stratum@img@y{#3}%
+\setlength\stratum@img@y{.01\stratum@img@y}%
+\stratum@ratio@want=\stratum@img@x%
+\stratum@ratio@tmp=\stratum@img@y%
+\divide\stratum@ratio@want by \stratum@ratio@tmp%
+\stratum@cmp@want=\stratum@ratio@want pt%
+}%
+%
 \newcommand{\includeimagemaxdim}[3]{%
-\settowidth\stratum@img@x{\includegraphics[width=100cm]{#1}}
-\settoheight\stratum@img@y{\includegraphics[width=1cm]{#1}}
-\stratum@ratio@img=\stratum@img@x
-\stratum@ratio@tmp=\stratum@img@y
-\divide\stratum@ratio@img by \stratum@ratio@tmp
-\stratum@cmp@img=\stratum@ratio@img pt
-%
-\setlength\stratum@img@x{#2}
-\setlength\stratum@img@y{#3}
-\setlength\stratum@img@y{.01\stratum@img@y}
-\stratum@ratio@want=\stratum@img@x
-\stratum@ratio@tmp=\stratum@img@y
-\divide\stratum@ratio@want by \stratum@ratio@tmp
-\stratum@cmp@want=\stratum@ratio@want pt
-\ifdim \stratum@cmp@img < \stratum@cmp@want
+\stratum@calc@cmp{#1}{#2}{#3}
+\ifdim \stratum@cmp@img < \stratum@cmp@want%
 % limit height
-\includegraphics[height=#3]{#1}
+\includegraphics[height=#3]{#1}%
 \else
 % limt width
-\includegraphics[width=#2]{#1}
+\includegraphics[width=#2]{#1}%
 \fi
+}%
+%
+\newcommand{\includeimagemindim}[3]{%
+\stratum@calc@cmp{#1}{#2}{#3}
+\ifdim \stratum@cmp@img > \stratum@cmp@want%
+% limit height
+\includegraphics[height=#3]{#1}%
+\else
+% limt width
+\includegraphics[width=#2]{#1}%
+\fi
+}
+%
+\newcommand{\pictureframe}[1]{%
+\begin{frame}[plain]
+\begin{textblock*}{\paperwidth}(-.045\paperwidth,-.4\paperheight)%
+\begin{tikzpicture}%
+  \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
+  \node at (.5\paperwidth,.5\paperheight) [inner sep=0] {\includeimagemindim{#1}{\paperwidth}{\paperheight}};%
+\end{tikzpicture}
+\end{textblock*}
+\end{frame}
+}
+%
+\newcommand{\picturetitleframe}[2]{
+\begin{frame}{#1}
+\centering
+\includeimagemaxdim{#2}{\textwidth}{.99\textheight}
+\end{frame}
 }
 %
 \newcommand{\biglogopage}[2]{%
 \begin{textblock*}{\paperwidth}(-.045\paperwidth,-.4\paperheight)%
 \begin{tikzpicture}%
- \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
+  \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
   \node at (.5\paperwidth,.52\paperheight)[above,inner sep=0] {\includeimagemaxdim{\stratumThemeLogo}{.86\paperwidth}{.4\paperheight}};%
   \node (title) at (.5\paperwidth,.5\paperheight) [below,align=center,text width=.8\paperwidth]{\usebeamerfont{title}#1};%
   \node[below of=title,below,align=center,node distance=1.8em, text width=.8\paperwidth]{\usebeamerfont{subtitle}#2};%
