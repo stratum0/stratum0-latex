@@ -136,17 +136,17 @@
 }%
 \setbeamertemplate{frametitle}
 {%
-\begin{textblock*}{\paperwidth}(0pt,-0.11\paperwidth)
+\begin{textblock*}{\paperwidth}(0pt,0pt)
 \begin{tikzpicture}
  \useasboundingbox (0,0) rectangle (\paperwidth,.11\paperwidth);
- \node[above right, text width=.91\paperwidth] at (-0.01\paperwidth,-.002\paperwidth) {\usebeamerfont{frametitle}\insertframetitle};
+ \node[above right, text width=.91\paperwidth,text depth=0.5ex] at (0.02\paperwidth,-0.5ex) {\usebeamerfont{frametitle}\insertframetitle};
 \end{tikzpicture}
 \end{textblock*}
 }%
 \setbeamertemplate{title page}{%
  \logopage{\inserttitle}{%
  \insertsubtitle\\%
- \vspace{3em}%
+ \vfill%
  \insertauthor\\%
  \insertdate}%
 }
