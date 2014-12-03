@@ -150,20 +150,29 @@
 %    \begin{macrocode}
 \ProvidesPackage{yanonekaffeesatzzerohack} [2014/06/11 v0.1 YanoneKaffeesatzZeroHack support for LaTeX]
 %    \end{macrocode}
-%
-% Handle Options
-%    \begin{macrocode}
-\ProcessOptions*\relax
-%    \end{macrocode}
-
 % Required packages
 %    \begin{macrocode}
 \RequirePackage{mathpazo}
 \PassOptionsToPackage{LY1}{fontenc}
 \RequirePackage{fontenc}
+\RequirePackage{ifthen}
 %    \end{macrocode}
 %
-% 
+% \section Options
+% Provide beamer specific font-variant
+\newboolean{beamer}\setboolean{beamer}{false}
+%    \begin{key}{}{beamer}
+%    \begin{macrocode}
+\DeclareOption{beamer}{%
+  \setboolean{beamer}{true}
+}%
+%    \end{macrocode}
+%    \end{key}
+% Handle Options
+%    \begin{macrocode}
+\ProcessOptions*\relax
+%    \end{macrocode}
+%
 %    \begin{macro}{\glq}
 %    \begin{macro}{\grq}
 % Quotation mark German -- single
@@ -210,26 +219,27 @@
 % Use YanoneKaffeesatzZeroHack.
 %    \begin{macrocode}
 \renewcommand*{\encodingdefault}{LY1}
-\renewcommand*{\rmdefault}{YanoneKaffeesatzZeroHack}
-\renewcommand*{\sfdefault}{YanoneKaffeesatzZeroHack}
+\ifthenelse{\boolean{beamer}}{%
+  \renewcommand*{\rmdefault}{YanoneKaffeesatzZeroHackBeamer}%
+  \renewcommand*{\sfdefault}{YanoneKaffeesatzZeroHackBeamer}%
+}{%
+  \renewcommand*{\rmdefault}{YanoneKaffeesatzZeroHack}%
+  \renewcommand*{\sfdefault}{YanoneKaffeesatzZeroHack}%
+}%
 \renewcommand*{\ttdefault}{lmvtt}
 %    \end{macrocode}
 
 
 % define mathsf and mathtt
 %    \begin{macrocode}
-\SetMathAlphabet{\mathsf}{normal}{LY1}{YanoneKaffeesatzZeroHack}{m}{n}
+\ifthenelse{\boolean{beamer}}{%
+  \SetMathAlphabet{\mathsf}{normal}{LY1}{YanoneKaffeesatzZeroHackBeamer}{m}{n}%
+}{%
+  \SetMathAlphabet{\mathsf}{normal}{LY1}{YanoneKaffeesatzZeroHack}{m}{n}
+}
 \SetMathAlphabet{\mathtt}{normal}{LY1}{lmtt}{m}{n}
 %    \end{macrocode}
 %
-% Provide beamer specific font-variant
-%    \begin{macrocode}
-\newcommand{\YanoneKaffeesatzZeroHackBeamer}{%
-\renewcommand*{\rmdefault}{YanoneKaffeesatzZeroHackBeamer}%
-\renewcommand*{\sfdefault}{YanoneKaffeesatzZeroHackBeamer}%
-\SetMathAlphabet{\mathsf}{normal}{LY1}{YanoneKaffeesatzZeroHackBeamer}{m}{n}%
-}
-%    \end{macrocode}
 %
 %    \begin{macrocode}
 %</package>
