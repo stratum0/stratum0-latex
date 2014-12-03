@@ -100,9 +100,18 @@
 \setcounter{tocdepth}{2}
 %    \end{macrocode}
 %
+\newboolean{tocinheader}\setboolean{tocinheader}{false}
+%    \begin{key}{}{tocinheader}
+%    \begin{macrocode}
+\DeclareOptionBeamer{tocinheader}{%
+  \setboolean{tocinheader}{true}
+}%
+%    \end{macrocode}
+%    \end{key}
 %
 %
 %    \begin{macrocode}
+\ProcessOptionsBeamer\relax
 \mode
 <all>
 %    \end{macrocode}
@@ -123,6 +132,9 @@
  \node (logo) at (\paperwidth,-0.03\paperwidth)[above left,inner sep=.02\paperwidth] {\includegraphics[height=.1\paperwidth]{\stratumThemePlainLogo}};
  \gettikzxy{(logo.west)}{\logox}{\logoy}
  \draw[thick] (.02\paperwidth,.0\paperwidth) -- (\logox,.0\paperwidth);
+\ifthenelse{\boolean{tocinheader}}{%
+ \node[below right,text width=\logox-.02\paperwidth] at (.02\paperwidth,.11\paperwidth) {\usebeamerfont{section in head/foot}\insertsectionnavigationhorizontal{\textwidth}{\hskip0pt plus1fill}{\hskip0pt plus1fill}};
+ }{}
 \end{tikzpicture}
 }%
 \setbeamertemplate{footline}{%
