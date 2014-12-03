@@ -16,5 +16,5 @@ cp ../src/YanoneKaffeesatzZeroHack/*.sty tex/latex/stratum0
 cp -r ../src/YanoneKaffeesatzZeroHack/fonts/ ./
 cp ../src/beamer/*.sty tex/latex/stratum0
 cp ../src/beamer/img/*.pdf tex/latex/stratum0/img
-zip -r stratum0.zip fonts tex -x "*/\.*" -x "\.*"
+zip -r stratum0beamer.zip fonts tex -x "*/\.*" -x "\.*"
 cd ..
