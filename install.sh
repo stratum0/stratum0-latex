@@ -6,6 +6,7 @@ curl -L "${DOWNLOAD_URL}" > "${UNZIP_FILE}"
 unzip -d "${UNZIP_DIR}" "${UNZIP_FILE}"
 INSTALL_TO="$(kpsewhich --var-value TEXMFLOCAL)/"
 sudo cp -r "${UNZIP_DIR}/fonts" "${UNZIP_DIR}/tex" "${INSTALL_TO}"
+sudo mktexlsr
 sudo updmap-sys --nomkmap --nohash --enable Map=YanoneKaffeesatzZeroHack.map
 sudo updmap-sys
 sudo mktexlsr
