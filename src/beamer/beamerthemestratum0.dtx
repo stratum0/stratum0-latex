@@ -343,6 +343,11 @@
 \end{textblock*}
 }
 %
+\let\stratum@tableofcontents\tableofcontents
+\renewcommand{\tableofcontents}[1][]{
+  \hspace*{1em}
+  \parbox[t][\textheight][t]{0.9\textwidth}{\vfill\stratum@tableofcontents\vfill*}
+  }
 % \emd{macrocode}
 %</beamertheme>
 %    \end{macrocode}
