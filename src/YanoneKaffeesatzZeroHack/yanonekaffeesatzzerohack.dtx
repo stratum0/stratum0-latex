@@ -15,7 +15,7 @@
 %
 % \fi
 %
-% \CheckSum{52}
+% \CheckSum{76}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -38,13 +38,14 @@
 %<*driver>
 \documentclass{scrdoc}
 \usepackage[ngerman]{babel}
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{yanonekaffeesatzzerohack}
 \usepackage[colorlinks, linkcolor=blue]{hyperref}
 \usepackage{tabularx}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
+\newenvironment{key}[2]{\expandafter\macro\expandafter{`#2'}}{\endmacro}
 \begin{document}
   \DocInput{yanonekaffeesatzzerohack.dtx}
 \end{document}
@@ -67,7 +68,7 @@
 % \maketitle
 %
 % \begin{abstract}
-%   This file provides the font \emph{YanoneKaffeesatzZeroHack} from
+%   This file provides the font \emph{YanoneKaffeesatzZeroHack} from\\
 %   \url{https://stratum0.org/wiki/Yanone_Kaffeesatz_ZeroHack}
 % \end{abstract}
 %
@@ -115,7 +116,6 @@
 % }
 % }
 % 
-%
 % \subsection{YanoneKaffeesatzZeroHack symbols {\normalsize\mdseries (in extracts)}}
 % {
 % \parindent0mm
@@ -129,7 +129,9 @@
 % ä, ö, ü, ß, Ä, Ö, Ü
 % 
 % *, +, -, =, \textasciitilde, \textasciicircum, , !, ", §, \$, \%, \&,
-% /, (, ), =, ?, µ, @,\{, \}, [, ], €
+% /, (, ), =, ?, µ, @,\{, \}, [, ], €, ¥, \#
+%
+% \copyright, \textregistered, \texttrademark, \S, \flq, \frq, \flqq, \frqq, \glq, \grq, \glqq, \grqq, ¹, ², ³, →, ←, ±
 % }
 %
 %
@@ -155,16 +157,20 @@
 \RequirePackage{mathpazo}
 \PassOptionsToPackage{LY1}{fontenc}
 \RequirePackage{fontenc}
+\RequirePackage[utf8]{inputenc}
 \RequirePackage{ifthen}
 %    \end{macrocode}
 %
-% \section Options
+% \section{Options}
+%    \begin{macrocode}
+\newboolean{beamer}\setboolean{beamer}{false}%
+%    \end{macrocode}
+%
 % Provide beamer specific font-variant
-\newboolean{beamer}\setboolean{beamer}{false}
 %    \begin{key}{}{beamer}
 %    \begin{macrocode}
 \DeclareOption{beamer}{%
-  \setboolean{beamer}{true}
+  \setboolean{beamer}{true}%
 }%
 %    \end{macrocode}
 %    \end{key}
@@ -214,8 +220,38 @@
 \DeclareTextCommand{\textasteriskcentered}{LY1}{$*$}
 %    \end{macrocode}
 %    \end{macro}
-
-
+% Fix font for µ
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{00B5}{\symbol{181}}
+%    \end{macrocode}
+% Fix font for €
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{20AC}{\symbol{1}}
+%    \end{macrocode}
+% Fix font for ¹
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{00B9}{\symbol{185}}
+%    \end{macrocode}
+% Fix font for ²
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{00B2}{\symbol{178}}
+%    \end{macrocode}
+% Fix font for ³
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{00B3}{\symbol{179}}
+%    \end{macrocode}
+% Fix font for ±
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{00B1}{\symbol{177}}
+%    \end{macrocode}
+% Fix font for →
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{2192}{$\rightarrow$}
+%    \end{macrocode}
+% Fix font for ←
+%    \begin{macrocode}
+\DeclareUnicodeCharacter{2190}{$\leftarrow$}
+%    \end{macrocode}
 % Use YanoneKaffeesatzZeroHack.
 %    \begin{macrocode}
 \renewcommand*{\encodingdefault}{LY1}

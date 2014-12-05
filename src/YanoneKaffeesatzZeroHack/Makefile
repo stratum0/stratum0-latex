@@ -46,7 +46,7 @@ $(STYLIST): $(DTXLIST)
 	$(ECHO) -e '$(DONE_STRING)'
 
 %.pdf: %.dtx
-	$(ECHO) -n 'Compiling doc for $<'...
+	$(ECHO) 'Compiling doc for $<'...
 	$(PDFLATEX_SILENT) $< $(SILENT)
 	$(PDFLATEX_SILENT) $< $(SILENT)
 	$(ECHO) -e '$(DONE_STRING)'
@@ -77,7 +77,7 @@ fonts:
 	$(ECHO) -e '$(OK_STRING)'
 
 cleantemp:
-	$(ECHO) -n "Clean temporary files..."
+	$(ECHO) "Clean temporary files..."
 	$(RM) -f *~ build/*~ *.aux *.log *.glo *.idx *.out *.toc *.backup
 	$(ECHO) -e '$(OK_STRING)'
 
