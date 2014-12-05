@@ -157,9 +157,11 @@
 }%
 \setbeamertemplate{title page}{%
  \logopage{\inserttitle}{%
- \insertsubtitle\\%
+ \insertsubtitle%
  \vfill%
+ \setbox0=\hbox{\insertauthor\unskip}\ifdim\wd0=0pt\else%
  \insertauthor\\%
+ \fi%
  \insertdate}%
 }
 \setbeamersize{text margin left=.045\paperwidth,text margin right=.045\paperwidth,mini frame offset=0cm}
