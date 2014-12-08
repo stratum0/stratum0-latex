@@ -100,6 +100,7 @@
 \RequirePackage{environ}
 \RequirePackage[absolute,overlay]{textpos}
 \RequirePackage{tikz}
+\RequirePackage{xifthen}
 % \end{macrocode}
 % 
 % \subsection{Options}
@@ -243,105 +244,66 @@
   \egroup
 }
 %
-\newdimen\stratum@img@x%
 \newdimen\stratum@img@y%
-\newdimen\stratum@cmp@img%
-\newdimen\stratum@cmp@want%
 %
-\newcount\stratum@ratio@tmp%
-%
-\newcount\stratum@ratio@img%
-\newcount\stratum@ratio@want%
-%
-\newcommand{\stratum@calc@cmp}[3]{%
-  \settowidth\stratum@img@x{\includegraphics[width=100cm]{#1}}%
-  \settoheight\stratum@img@y{\includegraphics[width=1cm]{#1}}%
-  \stratum@ratio@img=\stratum@img@x%
-  \stratum@ratio@tmp=\stratum@img@y%
-  \divide\stratum@ratio@img by \stratum@ratio@tmp%
-  \stratum@cmp@img=\stratum@ratio@img pt%
-%
-  \setlength\stratum@img@x{#2}%
-  \setlength\stratum@img@y{#3}%
-  \setlength\stratum@img@y{.01\stratum@img@y}%
-  \stratum@ratio@want=\stratum@img@x%
-  \stratum@ratio@tmp=\stratum@img@y%
-  \divide\stratum@ratio@want by \stratum@ratio@tmp%
-  \stratum@cmp@want=\stratum@ratio@want pt%
-}%
-%
-\newcommand{\includeimagemaxdim}[3]{%
-\stratum@calc@cmp{#1}{#2}{#3}
-  \ifdim \stratum@cmp@img < \stratum@cmp@want%
-    % limit height
-    \includegraphics[height=#3]{#1}%
-  \else
-    % limt width
+\newcommand{\includegraphicsfull}[3]{%
+ \settoheight\stratum@img@y{\includegraphics[width=#2]{#1}}%
+  \ifdim \stratum@img@y > #3%
     \includegraphics[width=#2]{#1}%
+  \else%
+    \includegraphics[height=#3]{#1}%
   \fi%
 }%
-%
-\newcommand{\includeimagemindim}[3]{%
-  \stratum@calc@cmp{#1}{#2}{#3}
-  \ifdim \stratum@cmp@img > \stratum@cmp@want%
-    % limit height
-    \includegraphics[height=#3]{#1}%
-  \else
-    % limt width
-    \includegraphics[width=#2]{#1}%
-  \fi
-}
 %
 \newcommand{\pictureframe}[2][]{%
 \begin{frame}[plain]%
 \begin{textblock*}{\paperwidth}(0pt,0pt)%
 \begin{tikzpicture}%
   \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
-  \node at (.5\paperwidth,.5\paperheight) [inner sep=0] {\includeimagemindim{#2}{\paperwidth}{\paperheight}};%
-  \ifx#1\@empty%
-  \else%
-    \node at (\paperwidth,0) [above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1] {\hspace{.5em}#1\hspace*{.5em}};%
-  \fi%
+  \node at (.5\paperwidth,.5\paperheight) [inner sep=0] {\includegraphicsfull{#2}{\paperwidth}{\paperheight}};%
+  \ifthenelse{\isempty{#1}}{}{%
+  \node at (\paperwidth,0) [above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1,text depth=0.3ex] {\vphantom{/Ü}\hspace{.5em}#1\hspace*{.5em}};%
+  }%
 \end{tikzpicture}%
 \end{textblock*}%
 \end{frame}%
 }
 %
-\newcommand{\picturetitleframe}[3][]{
+\newcommand{\picturetitleframe}[3][]{%
   \begin{frame}{#2}%
-    \ifx#1\@empty%
-    \else%
-      \makeabsolute[above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1]{0.98\paperwidth,0.07\paperheight,1}{#1\hspace*{.5em}}%
-    \fi%
-    \centering%
-    \includeimagemaxdim{#3}{\textwidth}{.99\textheight}%
-%}
-\end{frame}
-}
+    \begin{tikzpicture}%
+      \useasboundingbox (0,0) rectangle (\textwidth,\textheight);%
+      \node at (.5\textwidth,.5\textheight) [inner sep=0] {\includegraphics[keepaspectratio,width=\textwidth,height=.99\textheight]{#3}};%
+      \ifthenelse{\isempty{#1}}{}{%
+        \node at (\textwidth,0) [above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1,text depth=-0.2ex] {\vphantom{/Ü}\hspace{.5em}#1\hspace*{.5em}};%
+      }%
+    \end{tikzpicture}%
+  \end{frame}%
+}%
 %
 \newcommand{\smalllogopage}[2]{%
-\begin{textblock*}{\paperwidth}(0pt,0pt)
+  \begin{textblock*}{\paperwidth}(0pt,0pt)%
 \begin{tikzpicture}%
  \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
   \node (biglogo) at (.96\paperwidth,.5\paperheight)[left,inner sep=.04\paperwidth] {\includegraphics[width=.25\paperwidth]{\stratumThemeLogo}};%
-  \gettikzxy{(biglogo.west)}{\logox}{\logoy}
+      \gettikzxy{(biglogo.west)}{\logox}{\logoy}%
   \node at (.08\paperwidth,.5\paperheight) [above right, text width=\logox-.11\paperwidth]{\usebeamerfont{title}#1};%
-  \node at (.09\paperwidth,.5\paperheight) [below right, text width=\logox-.13\paperwidth,text depth=0.5ex]{\parbox[t][.35\paperheight][t]{\textwidth}{\usebeamerfont{subtitle}#2}};%
+     \node at (.09\paperwidth,.5\paperheight) [below right, text width=\logox-.13\paperwidth,text depth=0.5ex]{\parbox[t][.35\paperheight][t]{\textwidth}{\usebeamerfont{subtitle}#2}};%
   \draw[thick] (.07\paperwidth,.5\paperheight) -- (\logox,.5\paperheight);%
-\end{tikzpicture}
-\end{textblock*}
+    \end{tikzpicture}%
+  \end{textblock*}%
 }%
 %
 \newcommand{\biglogopage}[2]{%
-\begin{textblock*}{\paperwidth}(0pt, 0pt)
+  \begin{textblock*}{\paperwidth}(0pt, 0pt)%
 \begin{tikzpicture}%
   \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
-  \node at (.5\paperwidth,.52\paperheight)[above,inner sep=0] {\includeimagemaxdim{\stratumThemeLogo}{.86\paperwidth}{.4\paperheight}};%
+  \node at (.5\paperwidth,.52\paperheight)[above,inner sep=0] {\includegraphics[keepaspectratio,width=.86\paperwidth,height=.4\paperheight]{\stratumThemeLogo}};%
   \node (title) at (.5\paperwidth,.5\paperheight) [below,align=center,text width=.8\paperwidth]{\usebeamerfont{title}#1};%
   \node[below of=title,below,align=center,node distance=1.8em, text width=.8\paperwidth,text depth=0.5ex]{\parbox[t][.25\paperheight][t]{\textwidth}{\centering\usebeamerfont{subtitle}#2}};%
-\end{tikzpicture}
-\end{textblock*}
-}
+    \end{tikzpicture}%
+  \end{textblock*}%
+}%
 %
 \let\stratum@tableofcontents\tableofcontents
 \renewcommand{\tableofcontents}[1][]{
