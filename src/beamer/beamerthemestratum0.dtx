@@ -283,24 +283,24 @@
 %
 \newcommand{\smalllogopage}[2]{%
   \begin{textblock*}{\paperwidth}(0pt,0pt)%
-\begin{tikzpicture}%
- \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
-  \node (biglogo) at (.96\paperwidth,.5\paperheight)[left,inner sep=.04\paperwidth] {\includegraphics[width=.25\paperwidth]{\stratumThemeLogo}};%
+    \begin{tikzpicture}%
+      \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
+      \node (biglogo) at (.96\paperwidth,.5\paperheight)[left,inner sep=.04\paperwidth] {\includegraphics[width=.25\paperwidth]{\stratumThemeLogo}};%
       \gettikzxy{(biglogo.west)}{\logox}{\logoy}%
-  \node at (.08\paperwidth,.5\paperheight) [above right, text width=\logox-.11\paperwidth]{\usebeamerfont{title}#1};%
+      \node at (.08\paperwidth,.5\paperheight) [above right, text width=\logox-.11\paperwidth]{\usebeamerfont{title}#1};%
      \node at (.09\paperwidth,.5\paperheight) [below right, text width=\logox-.13\paperwidth,text depth=0.5ex]{\parbox[t][.35\paperheight][t]{\textwidth}{\usebeamerfont{subtitle}#2}};%
-  \draw[thick] (.07\paperwidth,.5\paperheight) -- (\logox,.5\paperheight);%
+      \draw[thick] (.07\paperwidth,.5\paperheight) -- (\logox,.5\paperheight);%
     \end{tikzpicture}%
   \end{textblock*}%
 }%
 %
 \newcommand{\biglogopage}[2]{%
   \begin{textblock*}{\paperwidth}(0pt, 0pt)%
-\begin{tikzpicture}%
-  \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
-  \node at (.5\paperwidth,.52\paperheight)[above,inner sep=0] {\includegraphics[keepaspectratio,width=.86\paperwidth,height=.4\paperheight]{\stratumThemeLogo}};%
-  \node (title) at (.5\paperwidth,.5\paperheight) [below,align=center,text width=.8\paperwidth]{\usebeamerfont{title}#1};%
-  \node[below of=title,below,align=center,node distance=1.8em, text width=.8\paperwidth,text depth=0.5ex]{\parbox[t][.25\paperheight][t]{\textwidth}{\centering\usebeamerfont{subtitle}#2}};%
+    \begin{tikzpicture}%
+      \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
+      \node at (.5\paperwidth,.52\paperheight)[above,inner sep=0] {\includegraphics[keepaspectratio,width=.86\paperwidth,height=.4\paperheight]{\stratumThemeLogo}};%
+      \node (title) at (.5\paperwidth,.5\paperheight) [below,align=center,text width=.8\paperwidth]{\usebeamerfont{title}#1};%
+      \node[below of=title,below,align=center,node distance=1.8em, text width=.8\paperwidth,text depth=0.5ex]{\parbox[t][.25\paperheight][t]{\textwidth}{\centering\usebeamerfont{subtitle}#2}};%
     \end{tikzpicture}%
   \end{textblock*}%
 }%
