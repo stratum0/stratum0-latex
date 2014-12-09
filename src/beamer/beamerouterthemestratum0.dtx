@@ -51,7 +51,10 @@
 \end{document}
 %</driver>
 % \fi
-%
+% \makeatletter
+% \@ifundefined{key}{
+% \newenvironment{key}[2]{\expandafter\macro\expandafter{`#2'}}{\endmacro}}{}
+% \makeatother
 % \changes{v1.0}{ 2014 / 11 / 19 }{Initial version}
 %
 % \GetFileInfo{beamerouterthemestratum0.sty}
@@ -91,16 +94,14 @@
 %    \begin{macrocode}
 \newdimen\beamer@tochorizontalspace
 \beamer@tochorizontalspace=0.15em
+\newboolean{tocinheader}\setboolean{tocinheader}{false}
 %    \end{macrocode}
 %
-%  \begin{macrocode}
-%  \end{macrocode}
 % Only sections and subsections in toc
 %    \begin{macrocode}
 \setcounter{tocdepth}{2}
 %    \end{macrocode}
 %
-\newboolean{tocinheader}\setboolean{tocinheader}{false}
 %    \begin{key}{}{tocinheader}
 %    \begin{macrocode}
 \DeclareOptionBeamer{tocinheader}{%

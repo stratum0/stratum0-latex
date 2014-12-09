@@ -50,7 +50,10 @@
 \end{document}
 %</driver>
 % \fi
-%
+% \makeatletter
+% \@ifundefined{key}{
+% \newenvironment{key}[2]{\expandafter\macro\expandafter{`#2'}}{\endmacro}}{}
+% \makeatother
 %\newenvironment{Options}%
 % {\begin{list}{}{%
 %  \renewcommand{\makelabel}[1]{\texttt{##1}\hfil}%
@@ -84,7 +87,7 @@
 %
 % \StopEventually{\PrintIndex}
 %
-% \section{Implementierung}
+% \section{Implementation}
 %
 %
 %    \begin{macrocode}
@@ -106,6 +109,9 @@
 % \subsection{Options}
 %
 % \subsubsection{Design options}
+%    \begin{macrocode}
+%    \end{macrocode}
+%
 %    \begin{key}{}{stratum0}
 %    \begin{macrocode}
 \DeclareOptionBeamer{stratum0}{%
@@ -165,7 +171,7 @@
 %    \begin{key}{}{tocinheader}
 %    \begin{macrocode}
 \DeclareOptionBeamer{tocinheader}{%
-%  \PassOptionsToPackage{tocinheader}{beamerouterthemestratum0}
+  \PassOptionsToPackage{tocinheader}{beamerouterthemestratum0}
 }%
 %    \end{macrocode}
 %    \end{key}

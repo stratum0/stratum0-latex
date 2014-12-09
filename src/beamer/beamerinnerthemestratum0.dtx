@@ -50,7 +50,11 @@
 \end{document}
 %</driver>
 % \fi
-%\newenvironment{key}[2]{\expandafter\macro\expandafter{`#2'}}{\endmacro}
+% \makeatletter
+% \@ifundefined{key}{
+% \newenvironment{key}[2]{\expandafter\macro\expandafter{`#2'}}{\endmacro}}{}
+% \makeatother
+
 % \changes{v1.0}{ 2014 / 11 / 19 }{Initial version}
 %
 % \GetFileInfo{beamerinnerthemestratum0.sty}
@@ -71,7 +75,7 @@
 %
 % \StopEventually{\PrintIndex}
 %
-% \section{Implementierung}
+% \section{Implementation}
 %
 %
 %    \begin{macrocode}
@@ -95,6 +99,7 @@
 %</innertheme>
 %    \end{macrocode}
 %
+%    \begin{macrocode}
 \setbeamertemplate{itemize item}{$\bullet$}
 \setbeamertemplate{itemize subitem}{--}
 \setbeamertemplate{itemize subsubitem}{--}
@@ -102,6 +107,7 @@
 \setbeamertemplate{enumerate subitem}{\insertenumlabel.\insertsubenumlabel}
 \setbeamertemplate{enumerate subsubitem}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
 \setbeamertemplate{enumerate mini template}{\insertenumlabel}
+%    \end{macrocode}
 %
 % \Finale
 \endinput
