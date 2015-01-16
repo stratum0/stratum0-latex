@@ -132,9 +132,9 @@
  \useasboundingbox (0,0) rectangle (\paperwidth,.11\paperwidth);
  \node (logo) at (\paperwidth,-0.03\paperwidth)[above left,inner sep=.02\paperwidth] {\includegraphics[height=.1\paperwidth]{\stratumThemePlainLogo}};
  \gettikzxy{(logo.west)}{\logox}{\logoy}
- \draw[thick] (.02\paperwidth,.0\paperwidth) -- (\logox,.0\paperwidth);
+ \draw[thick] (.02\paperwidth,0) -- (\logox,0);
 \ifthenelse{\boolean{tocinheader}}{%
- \node[below right,text width=\logox-.02\paperwidth] at (.02\paperwidth,.11\paperwidth) {\usebeamerfont{section in head/foot}\insertsectionnavigationhorizontal{\textwidth}{\hskip0pt plus1fill}{\hskip0pt plus1fill}};
+ \node[below right,text width=\logox-.02\paperwidth] at (.02\paperwidth,.11\paperwidth) {\usebeamerfont{section in head/foot}\strut\insertsectionnavigationhorizontal{\textwidth}{\hskip0pt plus1fill}{\hskip0pt plus1fill}};
  }{}
 \end{tikzpicture}
 }%
@@ -142,9 +142,9 @@
 \begin{tikzpicture}%
  \useasboundingbox (0,0) rectangle (\paperwidth,.08\paperheight);
  \draw[thick] (.02\paperwidth,.07\paperheight) -- (.98\paperwidth,.07\paperheight);
- \node[below right, text width=.93\paperwidth] at (.03\paperwidth,.065\paperheight) {\insertshortdate};
- \node[below right, text width=.93\paperwidth,align=center] at (.03\paperwidth,.065\paperheight) {\insertshortauthor{ --- }\insertshorttitle};
- \node[below right, text width=.93\paperwidth] at (.03\paperwidth,.065\paperheight) {\hfill\insertframenumber};
+ \node[below right, text width=.93\paperwidth,align=flush left] at (.03\paperwidth,.065\paperheight) {\strut\insertshortdate};
+ \node[below right, text width=.93\paperwidth,align=flush center] at (.03\paperwidth,.065\paperheight) {\strut\insertshortauthor{ --- }\insertshorttitle};
+ \node[below right, text width=.93\paperwidth,align=flush right] at (.03\paperwidth,.065\paperheight) {\strut\hfill\insertframenumber};
 \end{tikzpicture}
 }%
 \setbeamertemplate{frametitle}
@@ -152,7 +152,8 @@
 \begin{textblock*}{\paperwidth}(0pt,0pt)
 \begin{tikzpicture}
  \useasboundingbox (0,0) rectangle (\paperwidth,.11\paperwidth);
- \node[above right, text width=.91\paperwidth,text depth=0.5ex] at (0.02\paperwidth,-0.5ex) {\usebeamerfont{frametitle}\insertframetitle};
+ \gettikzxy{(logo.west)}{\logox}{\logoy} 
+ \node[above right, text width=\logox-0.045\paperwidth,align=flush left,inner xsep=0.6ex, inner ysep=-0.1ex] at (0.02\paperwidth,0) {\usebeamerfont{frametitle}\strut\insertframetitle};
 \end{tikzpicture}
 \end{textblock*}
 }%

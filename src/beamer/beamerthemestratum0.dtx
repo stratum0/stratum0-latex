@@ -268,7 +268,7 @@
   \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
   \node at (.5\paperwidth,.5\paperheight) [inner sep=0] {\includegraphicsfull{#2}{\paperwidth}{\paperheight}};%
   \ifthenelse{\isempty{#1}}{}{%
-  \node at (\paperwidth,0) [above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1,text depth=0.3ex] {\vphantom{/Ü}\hspace{.5em}#1\hspace*{.5em}};%
+  \node at (\paperwidth,0) [above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1,align=flush right,inner xsep=1ex,inner ysep=.3ex] {\vphantom{/Ü}\strut#1};%
   }%
 \end{tikzpicture}%
 \end{textblock*}%
@@ -281,7 +281,7 @@
       \useasboundingbox (0,0) rectangle (\textwidth,\textheight);%
       \node at (.5\textwidth,.5\textheight) [inner sep=0] {\includegraphics[keepaspectratio,width=\textwidth,height=.99\textheight]{#3}};%
       \ifthenelse{\isempty{#1}}{}{%
-        \node at (\textwidth,0) [above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1,text depth=-0.2ex] {\vphantom{/Ü}\hspace{.5em}#1\hspace*{.5em}};%
+      \node at (\textwidth,-.3ex) [above left,fill=s0background, font=\scriptsize,opacity=0.5,text opacity=1,align=flush right,inner xsep=1ex,inner ysep=.3ex] {\vphantom{/Ü}\strut#1};%
       }%
     \end{tikzpicture}%
   \end{frame}%
@@ -293,8 +293,8 @@
       \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
       \node (biglogo) at (.96\paperwidth,.5\paperheight)[left,inner sep=.04\paperwidth] {\includegraphics[width=.25\paperwidth]{\stratumThemeLogo}};%
       \gettikzxy{(biglogo.west)}{\logox}{\logoy}%
-      \node at (.08\paperwidth,.5\paperheight) [above right, text width=\logox-.11\paperwidth]{\usebeamerfont{title}#1};%
-     \node at (.09\paperwidth,.5\paperheight) [below right, text width=\logox-.13\paperwidth,text depth=0.5ex]{\parbox[t][.35\paperheight][t]{\textwidth}{\usebeamerfont{subtitle}#2}};%
+      \node at (.08\paperwidth,.5\paperheight) [above right, text width=\logox-.11\paperwidth,align=flush left,inner ysep=0,inner xsep=.3ex]{\usebeamerfont{title}\strut#1\strut};%
+     \node at (.09\paperwidth,.5\paperheight) [below right, text width=\logox-.13\paperwidth,align=flush left]{\parbox[t][.35\paperheight][t]{\textwidth}{\usebeamerfont{subtitle}\strut#2}};%
       \draw[thick] (.07\paperwidth,.5\paperheight) -- (\logox,.5\paperheight);%
     \end{tikzpicture}%
   \end{textblock*}%
@@ -305,8 +305,8 @@
     \begin{tikzpicture}%
       \useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);%
       \node at (.5\paperwidth,.52\paperheight)[above,inner sep=0] {\includegraphics[keepaspectratio,width=.86\paperwidth,height=.4\paperheight]{\stratumThemeLogo}};%
-      \node (title) at (.5\paperwidth,.5\paperheight) [below,align=center,text width=.8\paperwidth]{\usebeamerfont{title}#1};%
-      \node[below of=title,below,align=center,node distance=1.8em, text width=.8\paperwidth,text depth=0.5ex]{\parbox[t][.25\paperheight][t]{\textwidth}{\centering\usebeamerfont{subtitle}#2}};%
+      \node (title) at (.5\paperwidth,.5\paperheight) [below,align=flush center,text width=.8\paperwidth]{\usebeamerfont{title}\strut#1};%
+      \node[below of=title,below,align=flush center,node distance=1.8em, text width=.8\paperwidth]{\parbox[t][.25\paperheight][t]{\textwidth}{\centering\usebeamerfont{subtitle}\strut#2}};%
     \end{tikzpicture}%
   \end{textblock*}%
 }%
