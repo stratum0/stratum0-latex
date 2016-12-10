@@ -1,6 +1,12 @@
 \ProvidesFile{LY1YanoneKaffeesatzZeroHack.fd}
 
 \DeclareFontFamily{LY1}{YanoneKaffeesatzZeroHack}{}
+
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{l}{n}{ <-> YanoneKaffeesatzZeroHack-Light }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{l}{sc}{ <-> YanoneKaffeesatzZeroHack-Light-SmallCaps }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{l}{sl}{ <-> YanoneKaffeesatzZeroHack-Light-Slanted }{}
+\DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{l}{it}{ <-> YanoneKaffeesatzZeroHack-Light-Italic }{}
+
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{n}{ <-> YanoneKaffeesatzZeroHack-Regular }{}
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{sc}{ <-> YanoneKaffeesatzZeroHack-SmallCaps }{}
 \DeclareFontShape{LY1}{YanoneKaffeesatzZeroHack}{m}{sl}{ <-> YanoneKaffeesatzZeroHack-Slanted }{}
