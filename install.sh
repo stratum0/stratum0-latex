@@ -1,5 +1,5 @@
 #!/bin/sh
-DOWNLOAD_URL=$(curl -s https://api.github.com/repos/stratum0/stratum0beamer/releases | grep browser_download_url | head -n 1 |sed -E 's/[[:space:]]*"[a-z_]*": "([a-zA-Z0-9_.:/\-]*)"/\1/')
+DOWNLOAD_URL=$(curl -s https://api.github.com/repos/stratum0/stratum0-latex/releases | grep browser_download_url | head -n 1 |sed -E 's/[[:space:]]*"[a-z_]*": "([a-zA-Z0-9_.:/\-]*)"/\1/')
 UNZIP_DIR=$(mktemp -d /tmp/stratum0beamer.XXXXXXXX)
 UNZIP_FILE=${UNZIP_DIR}/stratum0beamer.zip
 curl -L "${DOWNLOAD_URL}" > "${UNZIP_FILE}"
