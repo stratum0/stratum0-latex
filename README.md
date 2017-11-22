@@ -28,6 +28,9 @@ Look into `./examples` to see how to use stratum0beamer.
 
 Install [MacTeX](https://tug.org/mactex/)
 
+## Requirements Arch Linux
+ 
+	sudo pacman -S curl unzip texlive-core texlive-bin texlive-fontsextra texlive-latexextra
 
 ## Install stratum0beamer
 
@@ -43,13 +46,18 @@ or
 	
 now you are ready to use stratum0beamer!
 
+## Distribution Packages
 
+ * [Arch Linux (AUR)](https://aur.archlinux.org/packages/texlive-stratum0-beamer/)
+    
 
 # Build from repository
 
 ## Requirements Ubuntu
 	sudo apt-get install lcdf-typetools
-	
+    
+## Requirements Arch Linux
+	sudo pacman install texlive-bin
 	
 ## Build stratum0beamer
 	./gen_dist.sh
