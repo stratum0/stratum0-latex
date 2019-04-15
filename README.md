@@ -47,11 +47,8 @@ now you are ready to use stratum0beamer!
 
 # Build from repository
 
-## Requirements Ubuntu
-	sudo apt-get install lcdf-typetools
+## Requirements Ubuntu / Debian
+	sudo apt-get install texlive-latex-recommended lcdf-typetools
     
 ## Requirements Arch Linux
 	sudo pacman install texlive-bin
-	
-## Build stratum0beamer
-	./gen_dist.sh
