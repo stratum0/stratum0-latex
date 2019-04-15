@@ -34,16 +34,10 @@ Install [MacTeX](https://tug.org/mactex/)
 
 ## Install stratum0beamer
 
-run install.sh (will ask for root via sudo)
-
 	git clone https://github.com/stratum0/stratum0beamer
 	cd stratum0beamer
-	./install.sh
+	make && sudo make install
 
-or
-
-	curl https://raw.githubusercontent.com/stratum0/stratum0beamer/develop/install.sh | sh
-	
 now you are ready to use stratum0beamer!
 
 ## Distribution Packages
